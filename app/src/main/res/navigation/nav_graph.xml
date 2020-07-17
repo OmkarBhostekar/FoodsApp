@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.foodsapp.ui.fragments.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_categoryMealsFragment"
+            app:destination="@id/categoryMealsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryMealsFragment"
+        android:name="com.example.foodsapp.ui.fragments.CategoryMealsFragment"
+        android:label="CategoryMealsFragment" >
+        <action
+            android:id="@+id/action_categoryMealsFragment_to_mealFragment"
+            app:destination="@id/mealFragment" />
+        <argument
+            android:name="Category"
+            app:argType="com.example.foodsapp.models.categories.Category" />
+    </fragment>
+    <fragment
+        android:id="@+id/mealFragment"
+        android:name="com.example.foodsapp.ui.fragments.MealFragment"
+        android:label="MealFragment" >
+        <argument
+            android:name="MealInfo"
+            app:argType="com.example.foodsapp.models.mealsbycategory.Meal" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="com.example.foodsapp.ui.fragments.FavouriteFragment"
+        android:label="FavouriteFragment" >
+        <action
+            android:id="@+id/action_favouriteFragment_to_mealFragment"
+            app:destination="@id/mealFragment" />
+        <argument
+            android:name="MealInfo"
+            app:argType="com.example.foodsapp.models.mealsbycategory.Meal" />
+    </fragment>
+    <fragment
+        android:id="@+id/randomFragment"
+        android:name="com.example.foodsapp.ui.fragments.RandomFragment"
+        android:label="RandomFragment" >
+        <action
+            android:id="@+id/action_randomFragment_to_mealFragment"
+            app:destination="@id/mealFragment" />
+        <argument
+            android:name="MealInfo"
+            app:argType="com.example.foodsapp.models.mealsbycategory.Meal" />
+    </fragment>
+</navigation>
