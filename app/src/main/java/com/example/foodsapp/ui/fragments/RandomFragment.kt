@@ -15,6 +15,7 @@ import com.example.foodsapp.ui.MainActivity
 import com.example.foodsapp.ui.viewmodels.MealViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_random.*
+import java.util.*
 
 class RandomFragment: Fragment(R.layout.fragment_random) {
 
@@ -34,8 +35,11 @@ class RandomFragment: Fragment(R.layout.fragment_random) {
                     randomMeal = meals.meals[0]
                     viewRandomMeal.visibility = View.VISIBLE
                     tvMealName.text = randomMeal!!.strMeal
-                    tvCategory.text = "CATEGORY:  ${randomMeal!!.strCategory.toString().toUpperCase()}"
-                    tvCountry.text =  "COUNTRY:    ${randomMeal!!.strArea.toString().toUpperCase()}"
+                    tvCategory.text = "CATEGORY:  ${randomMeal!!.strCategory.toString()
+                        .toUpperCase(Locale.ROOT)}"
+                    tvCountry.text =  "COUNTRY:    ${randomMeal!!.strArea.toString().toUpperCase(
+                        Locale.ROOT
+                    )}"
                     Glide.with(this).load(randomMeal!!.strMealThumb).into(ivMeal)
                 }
                is Resource.Error -> {
